@@ -23,7 +23,7 @@ pipeline {
 
                 git url: 'https://github.com/portuna85/blitz.git',
                     branch: 'master',
-                    credentialsId: 'jenkins_github'
+                    credentialsId: 'Jenkins_Github_token'
             }
 
             post {
@@ -48,7 +48,7 @@ pipeline {
           steps {
             echo 'Deploying Frontend'
             // 프론트엔드 디렉토리의 정적파일들을 S3 에 올림, 이 전에 반드시 EC2 instance profile 을 등록해야함.
-            dir ('./website'){
+            dir ('/blitz'){
                 sh '''
                 aws s3 sync ./ s3://jenkins-blitz-s3
                 '''
@@ -113,7 +113,7 @@ pipeline {
           }
         }
 
-        stage('Bulid Backend') {
+        stage('Build Backend') {
           agent any
           steps {
             echo 'Build Backend'
