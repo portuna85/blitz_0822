@@ -29,7 +29,7 @@ dependencies {
 }
 
 bootJar {
-    mainClassName = 'com.blitz.BlitzApplication'
+    archiveFileName = 'application.jar'
 }
 
 bootRun {
