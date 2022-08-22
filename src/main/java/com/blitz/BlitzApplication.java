@@ -8,4 +8,5 @@ public class BlitzApplication {
     public static void main(String[] args) {
         SpringApplication.run(BlitzApplication.class, args);
     }
+
 }
